@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 279627605086544446}
   - component: {fileID: 4382341457723328604}
   - component: {fileID: 9158066732707993947}
+  - component: {fileID: -683113682765871295}
   m_Layer: 0
   m_Name: SmallTargetPrefab
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c66437d04bc5a4387b7f5234d13fc3a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,3 +121,16 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-683113682765871295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689951643055098841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f35420804394ec6b013e9639209caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointValue: 20

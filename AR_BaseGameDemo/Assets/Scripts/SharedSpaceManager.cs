@@ -177,6 +177,15 @@ namespace MyFirstARGame
                 var mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
                 this.arCamera.transform.SetPositionAndRotation(mainCamera.transform.position, mainCamera.transform.rotation);
             }
+
+            GUIStyle style = new()
+            {
+                fontSize = 50,
+            };
+            GameObject global = GameObject.Find("Global");
+            Global g = global.GetComponent<Global>();
+            var scoretext = "Player1 score: " + g.score1 + "\n" + "Player2 score: " + g.score2;
+            GUI.Label(new Rect(0, Screen.height / 2 - 200, 100, 100), scoretext, style);
         }
 
         private void OnGUI()
@@ -190,6 +199,9 @@ namespace MyFirstARGame
             var text = this.hasFoundOrigin ? "Scanned image target" : this.hasFoundImageTarget ? "Found image target" : "Looking for image target";
             style.normal.textColor = this.hasFoundOrigin ? Color.green : Color.red;
             GUI.Label(new Rect(0, Screen.height / 2 + 200, 100, 100), text, style);
+
+
+            
         }
     }
 }
