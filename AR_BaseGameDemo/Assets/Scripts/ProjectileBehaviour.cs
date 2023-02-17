@@ -38,18 +38,20 @@ namespace MyFirstARGame
                 var photonView = this.transform.GetComponent<PhotonView>();
                 var playerId = Mathf.Max((int)photonView.InstantiationData[0], 0);
 
-                //GameObject global = GameObject.Find("Global");
-                //Global g = global.GetComponent<Global>();
+                GameObject global = GameObject.Find("Global");
+                Global g = global.GetComponent<Global>();
 
                 GameObject target = collision.gameObject;
                 TargetScript t = target.GetComponent<TargetScript>();
 
-                Global.singleton.scores[playerId - 2] += t.pointValue;
-
-                PhotonNetwork.Destroy(target);
-
-                //g.scores[playerId - 2] += t.pointValue;
-
+                if (playerId == 2)
+                {
+                    g.score1 += t.pointValue;
+                }
+                else if (playerId == 3)
+                {
+                    g.score2 += t.pointValue;
+                }
             }
         }
 

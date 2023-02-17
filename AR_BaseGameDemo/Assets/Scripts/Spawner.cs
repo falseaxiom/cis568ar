@@ -12,9 +12,9 @@ namespace MyFirstARGame
     {
         private float bounds = 2f;
 
-        public float spawnSmallRate = 25.0f;
-        public float spawnMediumRate = 15.0f;
-        public float spawnLargeRate = 7.0f;
+        public float spawnSmallRate = 15.0f;
+        public float spawnMediumRate = 7.0f;
+        public float spawnLargeRate = 3.0f;
     
         // Start is called before the first frame update
         void Start()
@@ -79,8 +79,8 @@ namespace MyFirstARGame
             Vector3 spawnPosition = new Vector3(pos_x, pos_y, pos_z);
 
             // spawn small target
-            var sm_target = PhotonNetwork.Instantiate("SmallTargetPrefab", spawnPosition, Quaternion.identity); //as GameObject;
-            //sm_target.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f); // scale the prefab
+            GameObject sm_target = PhotonNetwork.Instantiate("SmallTargetPrefab", spawnPosition, Quaternion.identity) as GameObject;
+            sm_target.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f); // scale the prefab
         }
 
         private void SpawnMediumTarget()
@@ -95,8 +95,8 @@ namespace MyFirstARGame
             Vector3 spawnPosition = new Vector3(pos_x, pos_y, pos_z);
 
             // spawn small target
-            var md_target = PhotonNetwork.Instantiate("MediumTargetPrefab", spawnPosition, Quaternion.identity); //as GameObject;
-            //md_target.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); // scale the prefab
+            GameObject md_target = PhotonNetwork.Instantiate("MediumTargetPrefab", spawnPosition, Quaternion.identity) as GameObject;
+            md_target.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); // scale the prefab
         }
 
         private void SpawnLargeTarget()
@@ -111,18 +111,13 @@ namespace MyFirstARGame
             Vector3 spawnPosition = new Vector3(pos_x, pos_y, pos_z);
 
             // spawn small target
-            var lg_target = PhotonNetwork.Instantiate("LargeTargetPrefab", spawnPosition, Quaternion.identity); //as GameObject;
-            //lg_target.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f); // scale the prefab
+            GameObject lg_target = PhotonNetwork.Instantiate("LargeTargetPrefab", spawnPosition, Quaternion.identity) as GameObject;
+            lg_target.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f); // scale the prefab
         }
         // Update is called once per frame
         void Update()
         {
             
-        }
-
-        public void Kill(GameObject g)
-        {
-            PhotonNetwork.Destroy(g);
         }
     }
 }

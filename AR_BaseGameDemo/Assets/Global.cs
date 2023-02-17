@@ -6,24 +6,22 @@ namespace MyFirstARGame
 {
     public class Global : MonoBehaviour
     {
-        public static Global singleton = null;
-
         public float timer;
         public bool playersReady;
 
         public int score1;
         public int score2;
-        public int[] scores = new int[2];
 
         //public bool 
 
         // Start is called before the first frame update
         void Start()
         {
-            InitSingleton();
-
             timer = 10.0f; // game lasts 15 seconds
             playersReady = false;
+
+            score1 = 0;
+            score2 = 0;
         }
 
         // Update is called once per frame
@@ -38,15 +36,10 @@ namespace MyFirstARGame
                 {
                     Debug.Log("Ran out of time - tally scores + determine win/loss players"); // TO-DO
                     // end the game, display scores
-                    //Time.timeScale = 0; 
+                    Time.timeScale = 0; 
                 }
             }
 
-        }
-
-        void InitSingleton()
-        {
-            singleton = this;
         }
     }
 }
