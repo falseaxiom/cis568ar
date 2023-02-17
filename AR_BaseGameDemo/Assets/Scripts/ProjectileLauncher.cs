@@ -15,6 +15,9 @@
         [SerializeField]
         private float initialSpeed = 25;
 
+        public bool p1HasBigBullet = false;
+        public bool p2HasBigBullet = false;
+
         protected override void OnPressBegan(Vector3 position)
         {
             if (this.projectilePrefab == null || !NetworkLauncher.Singleton.HasJoinedRoom)
@@ -32,7 +35,23 @@
             // velocity direction.
             var ray = this.GetComponent<Camera>().ScreenPointToRay(position);
             var projectile = PhotonNetwork.Instantiate(this.projectilePrefab.name, ray.origin, Quaternion.identity, data: initialData);
-            
+
+
+            int playerId = PhotonNetwork.LocalPlayer.ActorNumber; 
+            // BIG BULLETS
+            if (p1HasBigBullet && (playerId-2 == 0)) // if player 1 has big bullet
+            {
+                //GetComponent<PhotonView>().RPC("bigBullets", RpcTarget.All, projectile);
+                projectile.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
+                p1HasBigBullet = false;
+            }
+            else if (p2HasBigBullet && (playerId - 2 == 1)) // if player 1 has big bullet
+            {
+                //GetComponent<PhotonView>().RPC("bigBullets", RpcTarget.All, projectile);
+                projectile.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
+                p2HasBigBullet = false;
+            }
+
             Debug.Log("bullet launched");
 
 
@@ -43,6 +62,12 @@
             var rigidbody = projectile.GetComponent<Rigidbody>();
             rigidbody.isKinematic = false;
             rigidbody.velocity = ray.direction * initialSpeed;
+        }
+
+        [PunRPC]
+        void bigBullets(GameObject p)
+        {
+            p.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
         }
     }
 }

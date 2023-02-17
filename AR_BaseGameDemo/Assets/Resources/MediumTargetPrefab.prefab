@@ -88,6 +88,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9158066732707993947, guid: f2963eaf1aacf480ca8eb7814c7afbba,
+        type: 3}
+      propertyPath: OwnershipTransfer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f2963eaf1aacf480ca8eb7814c7afbba, type: 3}
