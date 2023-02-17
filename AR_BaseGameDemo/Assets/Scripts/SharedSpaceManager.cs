@@ -178,14 +178,14 @@ namespace MyFirstARGame
                 this.arCamera.transform.SetPositionAndRotation(mainCamera.transform.position, mainCamera.transform.rotation);
             }
 
-            GUIStyle style = new()
-            {
-                fontSize = 50,
-            };
-            GameObject global = GameObject.Find("Global");
-            Global g = global.GetComponent<Global>();
-            var scoretext = "Player1 score: " + g.score1 + "\n" + "Player2 score: " + g.score2;
-            GUI.Label(new Rect(0, Screen.height / 2 - 200, 100, 100), scoretext, style);
+            //GUIStyle style = new()
+            //{
+            //    fontSize = 50,
+            //};s
+            //GameObject global = GameObject.Find("Global");
+            //Global g = global.GetComponent<Global>();
+            //var scoretext = "Player1 score: " + g.score1 + "\n" + "Player2 score: " + g.score2;
+            //GUI.Label(new Rect(0, Screen.height / 2 - 200, 100, 100), scoretext, style);
         }
 
         private void OnGUI()
